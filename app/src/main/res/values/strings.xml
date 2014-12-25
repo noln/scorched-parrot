@@ -5,4 +5,12 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <string name="what_is_it_then">\nIt\'s a coffee-break workaround/hack that allows you to properly share Tweets from Fenix with Buffer.\n\n
+    To use it:\n\n
+        1. Open Fenix, and find a Tweet that you want to share to Buffer, and use the "Share link to Tweet" menu item.\n\n
+        2. Select ScorchedParrot from the share intent menu.\n\n
+        3. Buffer will take it from there.</string>
+
+
+
 </resources>

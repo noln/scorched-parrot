@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         // Get intent, action and MIME type
@@ -31,35 +33,10 @@ public class MainActivity extends ActionBarActivity {
             // Handle other intents, such as being started from the home screen
         }
 
-        // Button stuff
-        final Button button = (Button) findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                //sendIntentToBuffer();
-            }
-        });
 
     }
 
     private void handleSendText(Intent intent){
-
-        TextView tv = (TextView) findViewById(R.id.textView);
-
-        Bundle bundle = intent.getExtras();
-        tv.setText("Number of keys in the bundle: " + Integer.toString(bundle.size()) + "\n");
-
-        for(String keyName : bundle.keySet()){
-
-            tv.setText(tv.getText() + "\n" + "** " + keyName + " **");
-
-            Object extraObj = bundle.get(keyName);
-            if (extraObj instanceof Long){
-                tv.setText(tv.getText() + "\n["+extraObj.getClass().toString()+"] :\n " + Long.toString(bundle.getLong(keyName)) + "\n\n");
-            } else if (extraObj instanceof String) {
-                tv.setText(tv.getText() + "\n["+extraObj.getClass().toString()+"] :\n " + bundle.getString(keyName) + "\n\n");
-            }
-
-        }
 
         String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
         if (sharedText != null) {
@@ -75,6 +52,9 @@ public class MainActivity extends ActionBarActivity {
 
             // Punt it over.
             sendIntentToBuffer(sb.toString());
+
+            // Close the app.
+            finish();
 
         }
 
@@ -105,10 +85,7 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+
 
         return super.onOptionsItemSelected(item);
     }

@@ -2,8 +2,6 @@ ScorchedParrot
 ==============
 ![](http://mattfenlon.com/img/scorchedparrot_logo.png)
 
-A workaround to get Fenix(v1.5.4) to play nice with Buffer (v4.3).
-
-Hopefully this will be fixed and obsolete soon, but the simple method of reshaping text passed via Intents to other applications could be useful for other workarounds.
+A workaround to get Fenix to play nice with Buffer; originally just for specific versions but it's not been fixed in +2yrs, so currently works for any versions released after ~2014.
 
 See it in action: http://youtu.be/giKHa4o9hkQ
